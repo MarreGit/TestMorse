@@ -1,10 +1,9 @@
 import java.util.HashMap;
 
 public class Converter {
-    private HashMap<Character, String> engToMorse;
-    private HashMap<String, Character> morseToEng;
-
-    public String getMorse(char eng) {
+    private final HashMap<Character, String> engToMorse;
+    private final HashMap<String, Character> morseToEng;
+    public Converter(){
         engToMorse = new HashMap<>();
         engToMorse.put('A', "*-");
         engToMorse.put('B', "-***");
@@ -42,9 +41,7 @@ public class Converter {
         engToMorse.put('7', "--***");
         engToMorse.put('8', "---**");
         engToMorse.put('9', "----*");
-        return engToMorse.get(eng);
-    }
-    public char getEng(String morse) {
+
         morseToEng = new HashMap<>();
         morseToEng.put("*-", 'A');
         morseToEng.put("-***", 'B');
@@ -82,6 +79,11 @@ public class Converter {
         morseToEng.put("--***", '7');
         morseToEng.put("---**", '8');
         morseToEng.put("----*", '9');
+    }
+    public String getMorse(char eng) {
+        return engToMorse.get(eng);
+    }
+    public char getEng(String morse) {
         return morseToEng.get(morse);
 
     }
